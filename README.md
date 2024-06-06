@@ -1,5 +1,5 @@
 # onecateg-project
-
+## deployment link : https://um6p-course-16976.web.app/
 ## Project setup
 ```
 npm install
