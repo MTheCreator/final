@@ -1,26 +1,62 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import Login from '../components/login.vue';
+import Signin from '../components/Signin.vue';
+import HomeView from '../views/HomeView';
+import Home from '../components/Home.vue';
+import Profile from '../components/Profile.vue';
+import Add from '../components/Add.vue';
+import EditRecipe from '@/components/EditRecipe.vue';
+import CategoryRecipes from '@/components/CategoryRecipes.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    }
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/signin',
+    name: 'signin',
+    component: Signin
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },
+  {
+    path: '/add/:id',
+    name: 'Add',
+    component: Add
+  },
+  {
+    path: '/edit/:id/:catid',
+    name: 'Edit Recipe',
+    component: EditRecipe,
+    props: true
+  }, 
+  {
+    path: '/category/:id',
+    name: 'CategoryRecipes',
+    component: CategoryRecipes,
+    props: true
   }
+  
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 
